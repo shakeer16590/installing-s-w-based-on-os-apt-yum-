@@ -1,0 +1,16 @@
+---
+- name: Installing s/w depend on os
+  hosts: all
+  tasks:
+   - name: install tree using apt pkg
+     apt:
+      name: tree
+      state: absent
+     when: ansible_os_family == "Debian"
+   - name: install tree using yum pkg
+     yum:
+      name: finger
+      state: absent
+     when: ansible_os_family == "RedHat"
+
+...
